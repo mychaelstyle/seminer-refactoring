@@ -5,11 +5,13 @@ class Chat
 
   public function history()
   {
-    $csv = file('./chat.csv');
-    var_dump($csv[0]);
-    // $chatHistory = explode(',', $csv);
-    // var_dump($csv[0]);
-    return $csv;
+    $file = new SplFileObject('./chat.csv');
+    $file->setFlags(SplFileObject::READ_CSV);
+    $records = [];
+    foreach ($file as $line) {
+      $records[] = $line;
+    }
+    return $records;
   }
 
   public function post($request)
@@ -18,11 +20,9 @@ class Chat
     $contents = $request['contents'];
     $time = date('H:i:s');
 
-    $history = $this->history();
-    array_push($history, [$name, $contents, $time]);
-
-    $file_handler = fopen('./chat.csv', "w");
-    fputcsv($file_handler, $history);
+    $file = fopen('./chat.csv', "a");
+    fputcsv($file, [$name, $contents, $time]);
+    fclose($file);
   }
 
   public function get()
