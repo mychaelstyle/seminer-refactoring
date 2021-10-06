@@ -30,6 +30,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>チャット！！</title>
   </head>
   <body>
+    <script>
+      let focused = false;
+      setTimeout(function () {
+        if (!focused) {
+          location.reload();
+        }
+      }, 1000);
+
+      function onFocusIn() {
+        focused = true;
+      }
+
+      function onFocusOut() {
+        focused = false;
+      }
+    </script>
     <h1>チャット</h1>
     <?php if ($error !== null) { ?>
         <div style="color: red;"><?php echo $error; ?></div>
@@ -43,9 +59,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </ul>
     <form method="post" action="/">
       お名前
-      <input name="user" type="text" value="" placeholder="あなたのお名前">
+      <input onFocusIn="onFocusIn();" onFocusOut="onFocusOut();" name="user" type="text" value="" placeholder="あなたのお名前">
       発言
-      <input name="message" type="text" value="" placeholder="メッセージ" />
+      <input onFocusIn="onFocusIn();" onFocusOut="onFocusOut();" name="message" type="text" value="" placeholder="メッセージ" />
       <button type="submit">送信</button>
     </form>
   </body>
