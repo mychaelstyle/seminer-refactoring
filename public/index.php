@@ -21,7 +21,7 @@ if (file_exists('../app/controller/' . $clazz . '.php')) {
     if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $response = $obj->index();
     } else {
-        $response = $obj->store();
+        $response = $obj->store($_POST);
     }
 
     // コントローラーから戻された内容をレスポンスとして戻す。

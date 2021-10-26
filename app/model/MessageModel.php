@@ -9,8 +9,8 @@ class MessageModel
         return Csv::read('chat.csv');
     }
 
-    public function save($message, $memberName)
+    public static function save($params)
     {
-        // メッセージを保存する
+        return Csv::write('chat.csv', array_merge($params, ['date' => date("Y.m.d H:i")]));
     }
 }
