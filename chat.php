@@ -6,7 +6,6 @@
 
     $fp = fopen("chat.csv", "r");
     while (($array = fgetcsv($fp)) !== false) {
-    
         //空行を取り除く
         if (!array_diff($array, array(''))) {
             continue;
@@ -42,6 +41,11 @@
         header("Location: " . $_SERVER['PHP_SELF'], true, 303);
     }
 
+    /**
+     * バリデーション
+     *
+     * @return boolean if true 正常
+     */
     function validateRequest($request): array
     {
         if (empty($request['message'])) {
