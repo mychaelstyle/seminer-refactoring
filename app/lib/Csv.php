@@ -25,7 +25,6 @@ class Csv
     public static function write($fileName, $value)
     {
         $fp = fopen(dirname(__FILE__) . "/../../storage/csv/" . $fileName, "a");
-        // $line = implode(",", [$name, $message, date("Y.m.d H:i")]);
         $line = implode(",", $value);
         fwrite($fp, "\n".$line);
         fclose($fp);

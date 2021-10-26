@@ -2,10 +2,9 @@
 
 include(dirname(__FILE__) . '/../lib/View.php');
 include(dirname(__FILE__) . '/../model/MessageModel.php');
+
 class ChatController
 {
-    // const LOG_FILE_PATH = 'chat.csv';
-
     public function index()
     {
         $messages = MessageModel::read();
@@ -36,41 +35,6 @@ class ChatController
 
         return $members;
     }
-
-    // public function index()
-    // {
-    //     $fp = fopen("/csv/chat.csv", "r");
-    //     while (($array = fgetcsv($fp)) !== false) {
-    //         //空行を取り除く
-    //         if (!array_diff($array, array(''))) {
-    //             continue;
-    //         }
-        
-    //         $messages[] = [
-    //         'name' => $array[0],
-    //         'message' => $array[1],
-    //         'date' => $array[2]
-    //     ];
-    
-    //         $members[] = $array[0];
-    //     }
-    
-    
-    //     // $uniqueMembers = array_unique($members);
-    
-    //     fclose($fp);
-    // }
-
-    // public function storeMessage(string $message, string $name)
-    // {
-    //     $fp = fopen("./chat.csv", "a");
-    //     $line = implode(",", [$name, $message, date("Y.m.d H:i")]);
-    //     fwrite($fp, "\n".$line);
-    //     fclose($fp);
-
-    //     // ページ更新のためHTTPヘッダーを送信
-    //     header("Location: " . $_SERVER['PHP_SELF'], true, 303);
-    // }
 
     /**
      * バリデーション
