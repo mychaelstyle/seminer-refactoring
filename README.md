@@ -1,6 +1,31 @@
 # seminer-refactoring
 
-TODO:
-- 入力値のバリデーション、バリデーション表示
-- 入力内容から、制御文字、HTMLで意味を持つ特殊文字、前後の空白を取り除く
-- 入室者の一覧を表示する
+TODO
+- エラー表示デザイン調整
+- メンバー表示デザイン調整
+- phpdocを書く
+- 型宣言を書く
+
+ディレクトリ構成
+.
+├── LICENSE
+├── README.md
+├── app
+│   ├── controller
+│   │   └── ChatController.php
+│   ├── lib
+│   │   ├── Csv.php
+│   │   └── View.php
+│   ├── model
+│   │   └── MessageModel.php
+│   └── view
+│       └── chat.php
+├── public // DocumentRoot
+│   ├── css
+│   │   └── style.css
+│   ├── image
+│   │   └── img.png
+│   └── index.php
+└── storage
+    └── csv
+        └── chat.csv

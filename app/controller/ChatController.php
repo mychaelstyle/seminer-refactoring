@@ -39,7 +39,7 @@ class ChatController
     /**
      * バリデーション
      *
-     * @return boolean if true 正常
+     * @return array
      */
     public function validateRequest($request): array
     {
