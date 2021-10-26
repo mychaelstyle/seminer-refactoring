@@ -1,13 +1,15 @@
 <?php
 
 include(dirname(__FILE__) . '/../lib/View.php');
+include(dirname(__FILE__) . '/../model/MessageModel.php');
 class ChatController
 {
     // const LOG_FILE_PATH = 'chat.csv';
 
     public function index()
     {
-        View::render('chat', ['hello' => 'world']);
+        $messages = MessageModel::read();
+        View::render('chat', ['messages' => $messages]);
     }
 
     // public function index()

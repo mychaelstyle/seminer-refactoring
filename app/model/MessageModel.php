@@ -1,12 +1,12 @@
 <?php
 
-require_once dirname(__FILE__) . '/../../';
+include(dirname(__FILE__) . '/../lib/Csv.php');
 
 class MessageModel
 {
-    public function read()
+    public static function read()
     {
-        // csv読み込んで配列で返す
+        return Csv::read('chat.csv');
     }
 
     public function save($message, $memberName)
