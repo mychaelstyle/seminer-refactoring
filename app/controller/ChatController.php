@@ -1,11 +1,13 @@
 <?php
+
+include(dirname(__FILE__) . '/../lib/View.php');
 class ChatController
 {
     // const LOG_FILE_PATH = 'chat.csv';
 
     public function index()
     {
-        echo 'hello world!!!!!!';
+        View::render('chat', ['hello' => 'world']);
     }
 
     // public function index()
